@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Temperature Converter</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="page-head">
+      <p class="eyebrow">celsius · fahrenheit · kelvin</p>
+      <h1>Temperature Converter</h1>
+      <p>
+        Enter a value, pick the unit you're converting from, and see it instantly
+        in all three scales.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="instrument" aria-hidden="true">
+        <span class="label">Live reading</span>
+
+        <div class="therm">
+          <div class="therm-fill" id="thermFill"></div>
+        </div>
+
+        <div class="therm-bulb" id="thermBulb"></div>
+
+        <span class="readout" id="thermReadout">—</span>
+      </div>
+
+      <div class="form-side">
+        <label class="field-label" for="tempInput">Temperature value</label>
+
+        <div class="value-row">
+          <input
+            type="text"
+            id="tempInput"
+            inputmode="decimal"
+            placeholder="e.g. 36.6"
+            aria-describedby="errorMsg"
+            aria-invalid="false"
+          >
+        </div>
+
+        <p class="error-msg" id="errorMsg" role="alert"></p>
+
+        <fieldset>
+          <legend>Convert from</legend>
+
+          <div class="unit-pills">
+            <input type="radio" name="unit" id="unitC" value="C" checked>
+            <label for="unitC">°C</label>
+
+            <input type="radio" name="unit" id="unitF" value="F">
+            <label for="unitF">°F</label>
+
+            <input type="radio" name="unit" id="unitK" value="K">
+            <label for="unitK">K</label>
+          </div>
+        </fieldset>
+
+        <button type="button" class="convert-btn" id="convertBtn">
+          Convert
+        </button>
+
+        <div class="zero-warning" id="zeroWarning" role="alert">
+          <span class="mark">0 K</span>
+          <span>
+            That's below absolute zero — the coldest temperature physically
+            possible. Try a value at or above −273.15°C / −459.67°F / 0 K.
+          </span>
+        </div>
+
+        <div class="results" aria-live="polite">
+          <div class="result-tile" id="tileC">
+            <div class="unit-name">Celsius</div>
+            <div class="unit-value" id="valC">
+              <span class="empty">—</span>
+            </div>
+          </div>
+
+          <div class="result-tile" id="tileF">
+            <div class="unit-name">Fahrenheit</div>
+            <div class="unit-value" id="valF">
+              <span class="empty">—</span>
+            </div>
+          </div>
+
+          <div class="result-tile" id="tileK">
+            <div class="unit-name">Kelvin</div>
+            <div class="unit-value" id="valK">
+              <span class="empty">—</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
